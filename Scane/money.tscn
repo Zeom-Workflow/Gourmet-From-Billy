@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf4f1wta51juw"]
+
+[ext_resource type="Script" uid="uid://c438d83x48tyr" path="res://Script/money.gd" id="1_qahd7"]
+[ext_resource type="Texture2D" uid="uid://mpv2c3r20fmy" path="res://Assets/money_008.png" id="1_s7y0i"]
+
+[node name="money" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 52.0
+offset_right = 89.0
+offset_bottom = 92.0
+script = ExtResource("1_qahd7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.9750001
+anchor_bottom = 0.5
+offset_left = 79.0
+offset_top = 41.0
+offset_right = 80.99999
+offset_bottom = 76.0
+texture = ExtResource("1_s7y0i")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 58.0
+offset_right = 205.0
+offset_bottom = 81.0
+text = "Rp.0"

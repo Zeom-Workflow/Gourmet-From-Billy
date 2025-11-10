@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://drfuip8m6ncls"]
+
+[ext_resource type="Texture2D" uid="uid://dhdxg1fskesh5" path="res://Assets/BubbleText_007.png" id="1_imyhb"]
+[ext_resource type="Script" uid="uid://b57mm1jhccgkv" path="res://Script/bubble.gd" id="1_rintp"]
+
+[node name="bubbleText" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rintp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 6.0
+offset_right = 783.0
+offset_bottom = 380.0
+texture = ExtResource("1_imyhb")
+expand_mode = 2
