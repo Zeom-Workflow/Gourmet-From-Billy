@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://uul8nb157kwj"]
+
+[ext_resource type="Script" uid="uid://xw8dk6bfme5u" path="res://scenes/views/shop/shop_item.gd" id="1_btjjm"]
+[ext_resource type="Resource" uid="uid://dn14mgqmrb0xk" path="res://item/ammo/pistol_bullet.tres" id="2_6gmg1"]
+[ext_resource type="Texture2D" uid="uid://jcmml1vjdw5b" path="res://icon.svg" id="3_6gmg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gmg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j86y"]
+atlas = ExtResource("3_6gmg1")
+
+[node name="ShopItemBuy" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6gmg1")
+script = ExtResource("1_btjjm")
+item = ExtResource("2_6gmg1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5j86y")
+expand_mode = 1
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 88.0
+offset_right = 75.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 40
+text = "$1"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

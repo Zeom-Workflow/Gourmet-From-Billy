@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://craidok8t3uj4"]
+
+[ext_resource type="Script" uid="uid://cahwvmuqx6y17" path="res://scenes/views/shop/shop.gd" id="1_xfvoa"]
+[ext_resource type="Texture2D" uid="uid://631s2ps7da3j" path="res://assets/stand.png" id="2_1l46r"]
+[ext_resource type="PackedScene" uid="uid://uul8nb157kwj" path="res://scenes/views/shop/shop_item.tscn" id="2_xfvoa"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_xfvoa")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.36282945, 0.36282945, 0.36282945, 1)
+polygon = PackedVector2Array(536, 110, 187, 170, 88, 444, 510, 447, 863, 520, 988, 334, 893, 166)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 608.0
+offset_top = 312.0
+offset_right = 608.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Stand" type="Sprite2D" parent="Control"]
+position = Vector2(-2, -21.99997)
+scale = Vector2(0.6276382, 0.62763816)
+texture = ExtResource("2_1l46r")
+
+[node name="ShopItem" parent="Control" instance=ExtResource("2_xfvoa")]
+layout_mode = 0
+offset_left = -247.0
+offset_top = 152.0
+offset_right = -147.0
+offset_bottom = 252.0
+
+[node name="ShopItem2" parent="Control" instance=ExtResource("2_xfvoa")]
+layout_mode = 0
+offset_left = -102.0
+offset_top = -100.0
+offset_right = -2.0
+offset_bottom = 0.0
+
+[node name="ShopItem3" parent="Control" instance=ExtResource("2_xfvoa")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -100.0
+offset_right = 102.0
+offset_bottom = 0.0
+
+[node name="ShopItem4" parent="Control" instance=ExtResource("2_xfvoa")]
+layout_mode = 0
+offset_left = 106.0
+offset_top = -100.0
+offset_right = 206.0
+offset_bottom = 0.0

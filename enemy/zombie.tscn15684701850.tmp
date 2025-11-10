@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5bue7gkafjs0"]
+
+[ext_resource type="Script" uid="uid://174a7rws4vyd" path="res://enemy/zombie.gd" id="1_0vq01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3cmv"]
+size = Vector2(76, 204)
+
+[node name="Zombie" type="Node2D"]
+script = ExtResource("1_0vq01")
+MAX_HP = null
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(27, 79)
+polygon = PackedVector2Array(-42, 70, -40, -48, -49, -127, 32, -157, 61, -116, 39, -50, 52, 72)
+
+[node name="HpBar" type="ProgressBar" parent="."]
+offset_left = -38.0
+offset_top = -97.0
+offset_right = 88.0
+offset_bottom = -70.0
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(28, 46)
+shape = SubResource("RectangleShape2D_d3cmv")

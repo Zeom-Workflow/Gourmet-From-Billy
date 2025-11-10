@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ammo" load_steps=4 format=3 uid="uid://dn14mgqmrb0xk"]
+
+[ext_resource type="Script" uid="uid://c1tnrduo75d6e" path="res://item/ammo/ammo.gd" id="1_wo4nq"]
+[ext_resource type="Texture2D" uid="uid://d4gmggudk2pnk" path="res://icon.svg" id="2_0xi1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j86y"]
+atlas = ExtResource("2_0xi1q")
+
+[resource]
+script = ExtResource("1_wo4nq")
+name = "Pistol Bullet"
+texture = SubResource("AtlasTexture_5j86y")
+metadata/_custom_type_script = "uid://c1tnrduo75d6e"

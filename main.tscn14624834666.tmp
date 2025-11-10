@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfq3makhmug1r"]
+
+[ext_resource type="PackedScene" uid="uid://b5bue7gkafjs0" path="res://enemy/zombie.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cloxjj0rdhi2l" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://craidok8t3uj4" path="res://scenes/shop.tscn" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://wuyfy5a4w2aq" path="res://scenes/shooting_area.gd" id="3_h2yge"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 61.00003
+height = 218.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(864, 552)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Backyard" type="Button" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 315.0
+offset_right = 136.0
+offset_bottom = 390.0
+text = "Backyard
+"
+
+[node name="Shop" type="Button" parent="CanvasLayer"]
+offset_left = 1020.0
+offset_top = 306.0
+offset_right = 1131.0
+offset_bottom = 381.0
+text = "Store"
+
+[node name="Kitchen" type="Button" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 224.0
+offset_right = 136.0
+offset_bottom = 287.0
+text = "Kitchen
+"
+
+[node name="Kitchen2" type="Button" parent="CanvasLayer"]
+offset_left = 1023.0
+offset_top = 212.0
+offset_right = 1127.0
+offset_bottom = 291.0
+text = "Kitchen"
+
+[node name="BulletCount" type="Label" parent="CanvasLayer"]
+offset_left = 183.0
+offset_top = 313.0
+offset_right = 223.0
+offset_bottom = 403.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_font_sizes/font_size = 65
+text = "0"
+
+[node name="MoneyCount" type="Label" parent="CanvasLayer"]
+offset_left = 183.0
+offset_top = 381.0
+offset_right = 223.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(0.182, 0.7, 0.20789994, 1)
+theme_override_font_sizes/font_size = 65
+text = "0"
+
+[node name="Shop" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(1152, 0)
+
+[node name="Kitchen" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Kitchen"]
+polygon = PackedVector2Array(49, 464, 9, 651, 1143, 636, 1133, 457)
+
+[node name="Pan" type="Area2D" parent="Kitchen"]
+position = Vector2(804, 543)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kitchen/Pan"]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0xm2m")
+
+[node name="Backyard" type="Node2D" parent="."]
+position = Vector2(-1152, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Backyard"]
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+polygon = PackedVector2Array(142, 622, 415, 158, 415, 6, 737, 8, 1017, 621)
+
+[node name="Polygon2D" type="Polygon2D" parent="Backyard/Polygon2D"]
+polygon = PackedVector2Array(416, 156, 414, -30, 100, 279, 136, 612)
+
+[node name="ShootingArea" type="Area2D" parent="Backyard"]
+position = Vector2(526, 294)
+script = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Backyard/ShootingArea"]
+position = Vector2(41, 13)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Zombie" parent="Backyard" instance=ExtResource("1_0xm2m")]
+position = Vector2(509, 151)
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/Backyard" to="." method="_on_backyard_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="CanvasLayer/Kitchen" to="." method="_on_kitchen_pressed"]
+[connection signal="pressed" from="CanvasLayer/Kitchen2" to="." method="_on_kitchen_2_pressed"]
+[connection signal="mouse_entered" from="Backyard/ShootingArea" to="Backyard/ShootingArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Backyard/ShootingArea" to="Backyard/ShootingArea" method="_on_mouse_exited"]

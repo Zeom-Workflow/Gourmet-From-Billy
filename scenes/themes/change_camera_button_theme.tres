@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chgtt1jwpcp6k"]
+
+[ext_resource type="FontFile" uid="uid://cmcjnr53s6ln8" path="res://assets/fonts/Mansalva-Regular.ttf" id="1_r50g1"]
+
+[resource]
+Label/constants/line_spacing = -5
+Label/font_sizes/font_size = 36
+Label/fonts/font = ExtResource("1_r50g1")

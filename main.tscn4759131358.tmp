@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfq3makhmug1r"]
+
+[ext_resource type="Script" uid="uid://cloxjj0rdhi2l" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://craidok8t3uj4" path="res://scenes/shop.tscn" id="2_1bvp3"]
+[ext_resource type="Theme" uid="uid://chgtt1jwpcp6k" path="res://scenes/themes/change_camera_button_theme.tres" id="2_5vw27"]
+[ext_resource type="FontFile" uid="uid://cmcjnr53s6ln8" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://b81w2vtdsuglo" path="res://scenes/hp_bar.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dd6d322ne4ijk" path="res://scenes/backyard.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://doxp5emrqocbe" path="res://assets/cash.png" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://doasfrgq26417" path="res://assets/ammo_box.png" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://c37la5f2duxk" path="res://scenes/gui/change_camera_button.tscn" id="7_kek77"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 61.00003
+height = 218.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Backyard" type="Button" parent="GUI"]
+visible = false
+offset_top = 61.0
+offset_right = 48.0
+offset_bottom = 577.0
+theme = ExtResource("2_5vw27")
+text = "Backyard
+"
+autowrap_mode = 1
+
+[node name="Shop" type="Button" parent="GUI"]
+visible = false
+offset_left = 1020.0
+offset_top = 306.0
+offset_right = 1131.0
+offset_bottom = 381.0
+text = "Store"
+
+[node name="Kitchen" type="Button" parent="GUI"]
+visible = false
+offset_left = 26.0
+offset_top = 224.0
+offset_right = 136.0
+offset_bottom = 287.0
+text = "Kitchen
+"
+
+[node name="Kitchen2" type="Button" parent="GUI"]
+visible = false
+offset_left = 1023.0
+offset_top = 212.0
+offset_right = 1127.0
+offset_bottom = 291.0
+text = "Kitchen"
+
+[node name="BulletCount" type="Label" parent="GUI"]
+offset_left = 133.0
+offset_top = 462.0
+offset_right = 161.0
+offset_bottom = 542.0
+theme_override_colors/font_color = Color(1, 1, 0.2901961, 1)
+theme_override_colors/font_shadow_color = Color(0.00096124515, 0.00096124515, 0.00096124515, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_272bh")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="MoneyCount" type="Label" parent="GUI"]
+offset_left = 140.0
+offset_top = 54.0
+offset_right = 168.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0.182, 0.7, 0.20789994, 1)
+theme_override_fonts/font = ExtResource("2_272bh")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="Cheat" type="Button" parent="GUI"]
+offset_left = 519.0
+offset_top = 572.0
+offset_right = 605.0
+offset_bottom = 603.0
+text = "add bullet"
+
+[node name="HpBar" parent="GUI" instance=ExtResource("2_lquwl")]
+offset_left = 62.0
+offset_top = 30.0
+offset_right = 535.0
+offset_bottom = 57.0
+
+[node name="Cash" type="Sprite2D" parent="GUI"]
+position = Vector2(99.00001, 95)
+scale = Vector2(0.35344818, 0.3534482)
+texture = ExtResource("4_5vw27")
+
+[node name="AmmoBox" type="Sprite2D" parent="GUI"]
+position = Vector2(101, 501)
+scale = Vector2(0.5967746, 0.632143)
+texture = ExtResource("5_kek77")
+
+[node name="ChangeCameraButton" parent="GUI" instance=ExtResource("7_kek77")]
+offset_left = 1.0
+offset_top = 71.0
+offset_right = 63.0
+offset_bottom = 543.0
+scene_string = "backyard"
+
+[node name="Shop" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(578, -317)
+
+[node name="Kitchen" type="Node2D" parent="."]
+position = Vector2(-574, -317)
+
+[node name="Polygon2D" type="Polygon2D" parent="Kitchen"]
+polygon = PackedVector2Array(-6, 455, -7, 650, 1151, 650, 1151, 457)
+
+[node name="Pan" type="Area2D" parent="Kitchen"]
+position = Vector2(804, 543)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kitchen/Pan"]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0xm2m")
+
+[node name="Backyard" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(-1726, -317)
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="GUI/Backyard" to="." method="_on_backyard_pressed"]
+[connection signal="pressed" from="GUI/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="GUI/Kitchen" to="." method="_on_kitchen_pressed"]
+[connection signal="pressed" from="GUI/Kitchen2" to="." method="_on_kitchen_2_pressed"]
+[connection signal="pressed" from="GUI/Cheat" to="." method="_on_cheat_pressed"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6d322ne4ijk"]
+
+[ext_resource type="PackedScene" uid="uid://b5bue7gkafjs0" path="res://enemy/zombie.tscn" id="1_2n3w8"]
+[ext_resource type="PackedScene" uid="uid://dcy1lcjf3fdfh" path="res://scenes/views/backyard/shooting_area.tscn" id="2_wwo0i"]
+
+[node name="Backyard" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+polygon = PackedVector2Array(142, 622, 393, 307, 818, 305, 1017, 621)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+polygon = PackedVector2Array(423, 275, 416, 42, 96, -42, 136, 612)
+
+[node name="Monsters" type="Node2D" parent="."]
+
+[node name="Zombie" parent="Monsters" instance=ExtResource("1_2n3w8")]
+position = Vector2(530, 327)
+
+[node name="Zombie2" parent="Monsters" instance=ExtResource("1_2n3w8")]
+position = Vector2(427, 371.99997)
+scale = Vector2(1.4, 1.4)
+
+[node name="Zombie3" parent="Monsters" instance=ExtResource("1_2n3w8")]
+position = Vector2(612, 397)
+scale = Vector2(1.605, 1.605)
+
+[node name="ShootingArea" parent="." instance=ExtResource("2_wwo0i")]
+position = Vector2(535, 279)
