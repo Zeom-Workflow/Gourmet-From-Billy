@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=4 format=3 uid="uid://kkbxen1mxjdw"]
 
 [ext_resource type="Script" uid="uid://bpr24affddmv8" path="res://item/cooking/ingredient/ingredient.gd" id="1_x21em"]
-[ext_resource type="Texture2D" uid="uid://djby8wm41tx0f" path="res://assets/patty.png" id="2_th2uv"]
+[ext_resource type="Texture2D" uid="uid://djby8wm41tx0f" path="res://Assets/patty.png" id="2_th2uv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ts7a"]
 atlas = ExtResource("2_th2uv")
