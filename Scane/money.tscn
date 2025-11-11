@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf4f1wta51juw"]
 
 [ext_resource type="Script" uid="uid://c438d83x48tyr" path="res://Script/money.gd" id="1_qahd7"]
-[ext_resource type="Texture2D" uid="uid://mpv2c3r20fmy" path="res://Assets/money_008.png" id="1_s7y0i"]
+[ext_resource type="Texture2D" uid="uid://mpv2c3r20fmy" path="res://assets/money_008.png" id="1_s7y0i"]
 
 [node name="money" type="Control"]
 layout_mode = 3

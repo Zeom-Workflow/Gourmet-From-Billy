@@ -1,24 +1,23 @@
 extends Area2D
+class_name NPC
+const BUBBLE_TEXT = preload("uid://sdonqfroy67")
+
 
 var current_order = [
-	{ "nama": "burger", "price": 14 },
-	{ "nama": "jus", "price": 13 }
+	{ "item": Globals.COOKED_PATTY},
 ]
-
-@onready var kasir = get_node("../money")
 
 
 # --- BUBBLE TEXT ---
 func show_bubble(text):
-	var bubble = preload("res://Scane/bubbleText.tscn").instantiate()
-	
 
 	# gunakan canvas_transform Godot 4
+	var bubble = BUBBLE_TEXT.instantiate()
 	var screen_pos = get_viewport().canvas_transform * global_position
 
 	bubble.position = screen_pos + Vector2(0, -100)
 
-	bubble.show_text(text)
+	#bubble.show_text(text)	
 
 
 
@@ -32,11 +31,12 @@ func request_order():
 
 
 # --- Verifikasi pesanan dari player ---
-func verify_order(item_name: String) -> bool:
-	for item in current_order:
-		if item_name == item["nama"]:
-			kasir.add_money(item["price"])
-			show_bubble("+" + str(item["price"]))
+func verify_order(item: Food) -> bool:
+	print(item)
+	for order_item in current_order:
+		if order_item['item'] == item:
+			show_bubble("+" + str(item.price))
+			Inventory.money += item.price
 			return true
 	
 	# Item tidak cocok

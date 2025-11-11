@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="kasir"
+config/name="Gourmet From Billy"
 run/main_scene="uid://dfq3makhmug1r"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -20,11 +20,16 @@ config/icon="res://icon.svg"
 GameStates="*res://autoloads/game_states.gd"
 Inventory="*res://autoloads/inventory.gd"
 PlayerVars="*res://autoloads/player_vars.gd"
+Globals="*res://autoloads/globals.gd"
 
 [display]
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+monster_spawner=""
 
 [input]
 

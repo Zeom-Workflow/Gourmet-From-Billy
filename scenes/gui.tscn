@@ -1,51 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://cb8xjd58uj0gp"]
 
 [ext_resource type="Script" uid="uid://bbwv8mankuv7y" path="res://scenes/gui.gd" id="1_4yt8u"]
-[ext_resource type="Theme" uid="uid://chgtt1jwpcp6k" path="res://scenes/themes/change_camera_button_theme.tres" id="1_7yii4"]
 [ext_resource type="FontFile" uid="uid://cmcjnr53s6ln8" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_4yt8u"]
 [ext_resource type="PackedScene" uid="uid://b81w2vtdsuglo" path="res://scenes/hp_bar.tscn" id="3_p54wi"]
 [ext_resource type="Texture2D" uid="uid://doxp5emrqocbe" path="res://assets/cash.png" id="4_xki8e"]
 [ext_resource type="Texture2D" uid="uid://doasfrgq26417" path="res://assets/ammo_box.png" id="5_v3be1"]
 [ext_resource type="PackedScene" uid="uid://i37k5jvdkwwb" path="res://scenes/mag_bullets.tscn" id="6_08a8y"]
-[ext_resource type="PackedScene" uid="uid://c37la5f2duxk" path="res://scenes/gui/change_camera_button.tscn" id="7_qupqx"]
+[ext_resource type="PackedScene" uid="uid://c37la5f2duxk" path="res://scenes/gui/change_view_button.tscn" id="7_qupqx"]
+[ext_resource type="Script" uid="uid://dfaf4ag4mnqb" path="res://scenes/view_changer.gd" id="8_p54wi"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_4yt8u")
-
-[node name="Backyard" type="Button" parent="."]
-visible = false
-offset_top = 61.0
-offset_right = 48.0
-offset_bottom = 577.0
-theme = ExtResource("1_7yii4")
-text = "Backyard
-"
-autowrap_mode = 1
-
-[node name="Shop" type="Button" parent="."]
-visible = false
-offset_left = 1020.0
-offset_top = 306.0
-offset_right = 1131.0
-offset_bottom = 381.0
-text = "Store"
-
-[node name="Kitchen" type="Button" parent="."]
-visible = false
-offset_left = 26.0
-offset_top = 224.0
-offset_right = 136.0
-offset_bottom = 287.0
-text = "Kitchen
-"
-
-[node name="Kitchen2" type="Button" parent="."]
-visible = false
-offset_left = 1023.0
-offset_top = 212.0
-offset_right = 1127.0
-offset_bottom = 291.0
-text = "Kitchen"
 
 [node name="BulletCount" type="Label" parent="."]
 unique_name_in_owner = true
@@ -73,13 +38,6 @@ theme_override_fonts/font = ExtResource("2_4yt8u")
 theme_override_font_sizes/font_size = 50
 text = "0"
 
-[node name="Cheat" type="Button" parent="."]
-offset_left = 519.0
-offset_top = 572.0
-offset_right = 605.0
-offset_bottom = 603.0
-text = "add bullet"
-
 [node name="HpBar" parent="." instance=ExtResource("3_p54wi")]
 offset_left = 62.0
 offset_top = 30.0
@@ -99,16 +57,32 @@ texture = ExtResource("5_v3be1")
 [node name="MagBullets" parent="AmmoBox" instance=ExtResource("6_08a8y")]
 position = Vector2(-48.594563, 93.33331)
 
-[node name="ChangeCameraButton" parent="." instance=ExtResource("7_qupqx")]
-offset_left = 7.0
-offset_top = 66.0
-offset_right = 69.0
-offset_bottom = 538.0
-label = "Backyard"
+[node name="ViewChanger" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_p54wi")
 
-[node name="ChangeCameraButton2" parent="." instance=ExtResource("7_qupqx")]
-offset_left = 1070.0
-offset_top = 70.0
-offset_right = 1132.0
-offset_bottom = 542.0
-label = "Shop"
+[node name="ChangeViewButtonLeft" parent="ViewChanger" instance=ExtResource("7_qupqx")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 80.0
+offset_right = 70.0
+offset_bottom = 552.0
+label = "Label"
+
+[node name="ChangeViewButtonRight" parent="ViewChanger" instance=ExtResource("7_qupqx")]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 64.0
+offset_right = 1150.0
+offset_bottom = 536.0
+label = "Label"
+
+[connection signal="pressed" from="ViewChanger/ChangeViewButtonLeft" to="ViewChanger" method="_on_change_view_button_left_pressed"]
+[connection signal="pressed" from="ViewChanger/ChangeViewButtonRight" to="ViewChanger" method="_on_change_view_button_right_pressed"]

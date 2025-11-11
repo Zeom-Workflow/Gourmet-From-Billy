@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfq3makhmug1r"]
+
+[ext_resource type="Script" uid="uid://cloxjj0rdhi2l" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://craidok8t3uj4" path="res://scenes/views/shop/shop.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dd6d322ne4ijk" path="res://scenes/views/backyard/backyard.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cb8xjd58uj0gp" path="res://scenes/gui.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dxkonge33uhw5" path="res://scenes/views/kitchen/kitchen.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cotsvc1p2jjm1" path="res://scenes/views/cashier/cashier.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
+
+[node name="Shop" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(-2304, 0)
+
+[node name="Cashier" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="Kitchen" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(1152, 0)
+
+[node name="Backyard" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(-1152, 0)
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="GUI" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="ViewChanger" parent="GUI" index="6" node_paths=PackedStringArray("camera")]
+camera = NodePath("../../Camera")
+
+[editable path="GUI"]

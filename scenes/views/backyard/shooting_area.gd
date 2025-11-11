@@ -1,10 +1,25 @@
 extends Area2D
+
+@export var reload_bar: ProgressBar
+
 @onready var shoot_cooldown: Timer = $ShootCooldown
+@onready var reload_timer: Timer = $ReloadTimer
+
+const AIM_CURSOR = preload("uid://bkuiea32hlhcn")
+
+const max_gun_mag_size = 7
+@onready var hand_gun: Node2D = $"../HandGunContainer/HandGun"
+
 var can_shoot := true
+
+
+func _process(delta: float) -> void:
+	reload_bar.value = (reload_timer.time_left / reload_timer.wait_time) * 100
+	render_cursor()
+	render_hand_gun_sprite()
 
 func _on_mouse_entered() -> void:
 	PlayerVars.is_in_shooting_area = true
-
 
 func _on_mouse_exited() -> void:
 	PlayerVars.is_in_shooting_area = false
@@ -17,22 +32,8 @@ func _input(event: InputEvent) -> void:
 			shoot_cooldown.start()
 			shoot()
 
-func reload():
-	var max_gun_mag_size = 7
-	for i in max_gun_mag_size:
-		var bullet = Inventory.ammo.pop_back()
-		if bullet:
-			Inventory.gun_mag.append(bullet)
-		else:
-			print("no ammo left warning")
-
-
-func empty_shoot():
-	print("empty_shoot: reloading")
-	reload()
 
 func shoot():
-	if not PlayerVars.can_shoot: return
 	if Inventory.gun_mag.size() <= 0: 
 		empty_shoot()
 		return
@@ -77,5 +78,57 @@ func shoot():
 	enemies[0].take_damage(1)
 	print("HIT:", enemies[0].name)
 
-func _on_timer_timeout() -> void:
+
+
+var return_tween : Tween
+
+func render_cursor():
+	if PlayerVars.is_in_shooting_area:
+		var size = AIM_CURSOR.get_size()
+		Input.set_custom_mouse_cursor(AIM_CURSOR, Input.CURSOR_ARROW, size / 2)
+	else:
+		Input.set_custom_mouse_cursor(null)
+
+func render_hand_gun_sprite():
+	if PlayerVars.is_in_shooting_area and not PlayerVars.is_reloading:
+		var target = get_local_mouse_position() / 2
+		hand_gun.position = hand_gun.position.lerp(target, 0.2)
+		if return_tween:
+			return_tween.kill()
+			return_tween = null
+	else:
+		if return_tween == null:
+			return_tween = create_tween()
+			return_tween.set_ease(Tween.EASE_IN_OUT)
+			return_tween.tween_property(hand_gun, "position", Vector2(0, 400), 0.2)
+			return_tween.finished.connect(func(): return_tween = null)
+
+
+
+func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
+
+func _on_reload_timer_timeout() -> void:
+	PlayerVars.is_reloading = false
+	load_bullet_from_ammo_box()
+	if Inventory.ammo.size() > 0:
+		reload()
+
+func load_bullet_from_ammo_box():
+	var bullet = Inventory.ammo.pop_back()
+	if bullet:
+		Inventory.gun_mag.append(bullet)
+	else:
+		print("no ammo left warning")
+
+func reload():
+	if Inventory.gun_mag.size() >= max_gun_mag_size: return
+	if Inventory.ammo.size() > 0:
+		for i in max_gun_mag_size:
+			PlayerVars.is_reloading = true
+			reload_timer.start()
+
+
+func empty_shoot():
+	if not PlayerVars.is_reloading:
+		reload()
