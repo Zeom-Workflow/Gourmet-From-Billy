@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfq3makhmug1r"]
+[gd_scene load_steps=11 format=3 uid="uid://dfq3makhmug1r"]
 
 [ext_resource type="Script" uid="uid://cloxjj0rdhi2l" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://craidok8t3uj4" path="res://scenes/views/shop/shop.tscn" id="2_1bvp3"]
@@ -6,14 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dd6d322ne4ijk" path="res://scenes/views/backyard/backyard.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://cy8icttmjhuip" path="res://Script/stack_burger.gd" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cb8xjd58uj0gp" path="res://scenes/gui.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dn4n7jdlthc0s" path="res://scenes/views/Kitchen.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" path="res://scenes/views/Kitchen.tscn" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b6slpal235c4p" path="res://Assets/bun.png" id="5_5vw27"]
-[ext_resource type="Texture2D" uid="uid://476m73jej6ke" path="res://Assets/lettuce.png" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://th23p5f3qqxr" path="res://scenes/views/kasir/node_2d.tscn" id="5_lquwl"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
-radius = 61.00003
-height = 218.0
+[ext_resource type="Texture2D" uid="uid://476m73jej6ke" path="res://Assets/lettuce.png" id="6_kek77"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -28,9 +24,6 @@ position = Vector2(0, -8)
 position = Vector2(-574, -318)
 script = ExtResource("3_7mycd")
 
-[node name="Kitchen" parent="." instance=ExtResource("4_7mycd")]
-position = Vector2(-1273, -323)
-
 [node name="Plate" type="Node2D" parent="Kitchen"]
 position = Vector2(135, 431)
 
@@ -42,6 +35,7 @@ position = Vector2(0, 1)
 scale = Vector2(0.3, 0.3)
 
 [node name="IngredientButtons" type="Node2D" parent="Kitchen"]
+position = Vector2(-230, 31)
 
 [node name="BunButton" type="TextureButton" parent="Kitchen/IngredientButtons"]
 offset_left = 301.0
@@ -56,6 +50,9 @@ offset_top = 92.0
 offset_right = 729.0
 offset_bottom = 252.0
 texture_normal = ExtResource("6_kek77")
+
+[node name="Kitchen2" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(-1273, -323)
 
 [node name="Backyard" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(-2382, -355)
