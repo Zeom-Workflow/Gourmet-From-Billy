@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nm0npk7bngwq"
-path="res://.godot/imported/Piring_004.png-7d61c0bd25b6ba26c823a76cfc56fa68.ctex"
+path="res://.godot/imported/Piring_004.png-aa2531521bf912082fc1eb9264431701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Piring_004.png"
-dest_files=["res://.godot/imported/Piring_004.png-7d61c0bd25b6ba26c823a76cfc56fa68.ctex"]
+source_file="res://Assets/Piring_004.png"
+dest_files=["res://.godot/imported/Piring_004.png-aa2531521bf912082fc1eb9264431701.ctex"]
 
 [params]
 

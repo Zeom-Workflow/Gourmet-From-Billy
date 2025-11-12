@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1wbm7ok8bhd6"
-path="res://.godot/imported/bg_cashier.png-6301472511f201223c32f29854bc370e.ctex"
+path="res://.godot/imported/bg_cashier.png-d9c02841693a71abd1fc56533f282937.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/bg_cashier.png"
-dest_files=["res://.godot/imported/bg_cashier.png-6301472511f201223c32f29854bc370e.ctex"]
+source_file="res://Assets/backgrounds/bg_cashier.png"
+dest_files=["res://.godot/imported/bg_cashier.png-d9c02841693a71abd1fc56533f282937.ctex"]
 
 [params]
 

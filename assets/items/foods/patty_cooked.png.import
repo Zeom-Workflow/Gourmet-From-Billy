@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bstptywnnx0ns"
-path="res://.godot/imported/patty_cooked.png-ebfa4b2c139760e0a3920939bba6b7d8.ctex"
+path="res://.godot/imported/patty_cooked.png-4c098302a0b78d72cd5566eee3b3af76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/foods/patty_cooked.png"
-dest_files=["res://.godot/imported/patty_cooked.png-ebfa4b2c139760e0a3920939bba6b7d8.ctex"]
+source_file="res://Assets/items/foods/patty_cooked.png"
+dest_files=["res://.godot/imported/patty_cooked.png-4c098302a0b78d72cd5566eee3b3af76.ctex"]
 
 [params]
 

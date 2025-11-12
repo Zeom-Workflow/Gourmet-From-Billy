@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cmcjnr53s6ln8"
-path="res://.godot/imported/Mansalva-Regular.ttf-1c368330a4248d52001797ce29e4a009.fontdata"
+path="res://.godot/imported/Mansalva-Regular.ttf-4f939ed34e9178fb23b8758c9f3edcad.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Mansalva-Regular.ttf"
-dest_files=["res://.godot/imported/Mansalva-Regular.ttf-1c368330a4248d52001797ce29e4a009.fontdata"]
+source_file="res://Assets/fonts/Mansalva-Regular.ttf"
+dest_files=["res://.godot/imported/Mansalva-Regular.ttf-4f939ed34e9178fb23b8758c9f3edcad.fontdata"]
 
 [params]
 
