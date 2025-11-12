@@ -1,29 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd6d322ne4ijk"]
+[gd_scene load_steps=7 format=3 uid="uid://dd6d322ne4ijk"]
 
 [ext_resource type="PackedScene" uid="uid://b5bue7gkafjs0" path="res://enemy/zombie.tscn" id="1_2n3w8"]
+[ext_resource type="Script" uid="uid://l6ejix5t1ebf" path="res://scenes/views/backyard/spawner_manager.gd" id="2_1iixb"]
 [ext_resource type="PackedScene" uid="uid://dcy1lcjf3fdfh" path="res://scenes/views/backyard/shooting_area.tscn" id="2_wwo0i"]
+[ext_resource type="Texture2D" uid="uid://dsody5qjt7cxo" path="res://assets/backgrounds/bg_zombie_area.png" id="4_hsfq6"]
+[ext_resource type="Texture2D" uid="uid://dqip8c8aiqpgk" path="res://assets/backgrounds/bg_zombie_area_frame_window 1.png" id="5_wukuk"]
+[ext_resource type="Texture2D" uid="uid://cnb6lsawuytwa" path="res://assets/backgrounds/hand_gun.png" id="6_jidys"]
 
 [node name="Backyard" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.25565878, 0.25565878, 0.25565878, 1)
-polygon = PackedVector2Array(142, 622, 393, 307, 818, 305, 1017, 621)
-
-[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
-polygon = PackedVector2Array(423, 275, 416, 42, 96, -42, 136, 612)
+[node name="BgZombieArea" type="Sprite2D" parent="."]
+modulate = Color(0.3924328, 0.3924328, 0.3924328, 1)
+position = Vector2(577, 369.00003)
+scale = Vector2(0.6050791, 0.6050792)
+texture = ExtResource("4_hsfq6")
 
 [node name="Monsters" type="Node2D" parent="."]
 
-[node name="Zombie" parent="Monsters" instance=ExtResource("1_2n3w8")]
-position = Vector2(530, 327)
+[node name="ShootingArea" parent="." node_paths=PackedStringArray("reload_bar") instance=ExtResource("2_wwo0i")]
+position = Vector2(577, 323)
+reload_bar = NodePath("../ReloadBar")
 
-[node name="Zombie2" parent="Monsters" instance=ExtResource("1_2n3w8")]
-position = Vector2(427, 371.99997)
-scale = Vector2(1.4, 1.4)
+[node name="CollisionShape2D" parent="ShootingArea" index="0"]
+position = Vector2(-8, -12)
 
-[node name="Zombie3" parent="Monsters" instance=ExtResource("1_2n3w8")]
-position = Vector2(612, 397)
-scale = Vector2(1.605, 1.605)
+[node name="SpawnerManager" type="Node2D" parent="."]
+script = ExtResource("2_1iixb")
+zombie_scene = ExtResource("1_2n3w8")
 
-[node name="ShootingArea" parent="." instance=ExtResource("2_wwo0i")]
-position = Vector2(535, 279)
+[node name="Timer" type="Timer" parent="SpawnerManager"]
+
+[node name="MonsterSpawner" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(259, 297)
+
+[node name="MonsterSpawner2" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(480, 272)
+
+[node name="MonsterSpawner3" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(536, 272)
+
+[node name="MonsterSpawner4" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(616, 272)
+
+[node name="MonsterSpawner5" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(680, 272)
+
+[node name="MonsterSpawner6" type="Node2D" parent="." groups=["monster_spawner"]]
+position = Vector2(912, 288)
+
+[node name="BgZombieAreaFrameWindow1" type="Sprite2D" parent="."]
+position = Vector2(577.29865, 324.37497)
+scale = Vector2(0.6050792, 0.60507923)
+texture = ExtResource("5_wukuk")
+
+[node name="ReloadBar" type="ProgressBar" parent="."]
+offset_left = 488.0
+offset_top = 605.0
+offset_right = 664.0
+offset_bottom = 617.0
+show_percentage = false
+
+[node name="HandGunContainer" type="Node2D" parent="."]
+position = Vector2(774, 402)
+
+[node name="HandGun" type="Node2D" parent="HandGunContainer"]
+
+[node name="GunSprite" type="Sprite2D" parent="HandGunContainer/HandGun"]
+position = Vector2(92, 117)
+scale = Vector2(0.55597967, 0.55597967)
+texture = ExtResource("6_jidys")
+
+[editable path="ShootingArea"]

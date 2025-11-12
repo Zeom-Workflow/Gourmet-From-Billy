@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1t3nes8mvbgd"
-path="res://.godot/imported/BubleText_002.png-46d144d2b1548703ef6c66dbe661799f.ctex"
+path="res://.godot/imported/BubleText_002.png-fc328ca5c8a4174efdc88c871708ebb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BubleText/BubleText_002.png"
-dest_files=["res://.godot/imported/BubleText_002.png-46d144d2b1548703ef6c66dbe661799f.ctex"]
+source_file="res://assets/BubleText/BubleText_002.png"
+dest_files=["res://.godot/imported/BubleText_002.png-fc328ca5c8a4174efdc88c871708ebb5.ctex"]
 
 [params]
 

@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://craidok8t3uj4"]
+[gd_scene load_steps=3 format=3 uid="uid://craidok8t3uj4"]
 
-[ext_resource type="Script" uid="uid://cahwvmuqx6y17" path="res://scenes/views/shop/shop.gd" id="1_xfvoa"]
 [ext_resource type="Texture2D" uid="uid://631s2ps7da3j" path="res://assets/stand.png" id="2_1l46r"]
 [ext_resource type="PackedScene" uid="uid://uul8nb157kwj" path="res://scenes/views/shop/shop_item.tscn" id="2_xfvoa"]
 
 [node name="Shop" type="Node2D"]
-script = ExtResource("1_xfvoa")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.36282945, 0.36282945, 0.36282945, 1)
-polygon = PackedVector2Array(536, 110, 187, 170, 88, 444, 510, 447, 863, 520, 988, 334, 893, 166)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -26,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Stand" type="Sprite2D" parent="Control"]
-position = Vector2(-2, -21.99997)
+position = Vector2(0, 8.000004)
 scale = Vector2(0.6276382, 0.62763816)
 texture = ExtResource("2_1l46r")
 

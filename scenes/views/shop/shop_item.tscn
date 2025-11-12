@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://uul8nb157kwj"]
 
 [ext_resource type="Script" uid="uid://xw8dk6bfme5u" path="res://scenes/views/shop/shop_item.gd" id="1_btjjm"]
-[ext_resource type="Resource" uid="uid://dn14mgqmrb0xk" path="res://item/ammo/pistol_bullet.tres" id="2_6gmg1"]
-[ext_resource type="Texture2D" uid="uid://jcmml1vjdw5b" path="res://icon.svg" id="3_6gmg1"]
+[ext_resource type="Resource" uid="uid://dn14mgqmrb0xk" path="res://data/item/ammo/pistol_bullet.tres" id="2_6gmg1"]
+[ext_resource type="Texture2D" uid="uid://d4gmggudk2pnk" path="res://icon.svg" id="3_6gmg1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gmg1"]
 

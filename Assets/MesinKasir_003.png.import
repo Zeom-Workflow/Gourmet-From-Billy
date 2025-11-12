@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brf0o5rswrpof"
-path="res://.godot/imported/MesinKasir_003.png-5ffe296e0724399049712568b79c3d3a.ctex"
+path="res://.godot/imported/MesinKasir_003.png-5caf9ee41d9bc57879cf5ef0734e320c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MesinKasir_003.png"
-dest_files=["res://.godot/imported/MesinKasir_003.png-5ffe296e0724399049712568b79c3d3a.ctex"]
+source_file="res://assets/MesinKasir_003.png"
+dest_files=["res://.godot/imported/MesinKasir_003.png-5caf9ee41d9bc57879cf5ef0734e320c.ctex"]
 
 [params]
 

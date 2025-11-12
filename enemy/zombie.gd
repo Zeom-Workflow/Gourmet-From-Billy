@@ -7,10 +7,6 @@ class_name Zombie
 var is_aimed := false
 
 func _ready() -> void:
-	
-	#for autoload in get_tree().root.get_children():
-		#if autoload != get_tree().get_current_scene():
-			#print(autoload)
 	hurtbox.mouse_entered.connect(func(): is_aimed = true)
 	hurtbox.mouse_exited.connect(func(): is_aimed = false)
 	hp_bar.value = 100

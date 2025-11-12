@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxkonge33uhw5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+radius = 61.00003
+height = 218.0
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-6, 455, -7, 650, 1151, 650, 1151, 457)
+
+[node name="Pan" type="Area2D" parent="."]
+position = Vector2(804, 543)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pan"]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0xm2m")

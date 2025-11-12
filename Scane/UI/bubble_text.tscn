@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drfuip8m6ncls"]
 
-[ext_resource type="Texture2D" uid="uid://dhdxg1fskesh5" path="res://Assets/BubbleText_007.png" id="1_imyhb"]
+[ext_resource type="Texture2D" uid="uid://dhdxg1fskesh5" path="res://assets/BubbleText_007.png" id="1_imyhb"]
 [ext_resource type="Script" uid="uid://b57mm1jhccgkv" path="res://Script/bubble.gd" id="1_rintp"]
 
 [node name="bubbleText" type="Control"]
