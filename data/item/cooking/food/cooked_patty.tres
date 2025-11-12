@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://dhoosrcfdly5k"]
+
+[ext_resource type="Script" uid="uid://qx1hej3u4jow" path="res://data/item/cooking/food/food.gd" id="1_071bm"]
+[ext_resource type="Texture2D" uid="uid://djby8wm41tx0f" path="res://assets/patty.png" id="2_qw348"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an6os"]
+atlas = ExtResource("2_qw348")
+region = Rect2(288, 8, 288, 200)
+
+[resource]
+script = ExtResource("1_071bm")
+name = "Cooked Patty"
+texture = SubResource("AtlasTexture_an6os")
+metadata/_custom_type_script = "uid://qx1hej3u4jow"

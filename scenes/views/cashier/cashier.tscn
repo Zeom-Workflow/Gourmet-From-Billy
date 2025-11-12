@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://cotsvc1p2jjm1"]
+
+[ext_resource type="Texture2D" uid="uid://1wbm7ok8bhd6" path="res://assets/backgrounds/bg_cashier.png" id="1_wiwm5"]
+[ext_resource type="Script" uid="uid://dfrx3q4dwslmn" path="res://Script/npc.gd" id="2_o5ohj"]
+[ext_resource type="Texture2D" uid="uid://c0hjqlswovakj" path="res://assets/man_006.png" id="3_0toix"]
+[ext_resource type="Texture2D" uid="uid://biapq5xtoec5r" path="res://assets/backgrounds/counter.png" id="4_8qh0l"]
+[ext_resource type="Texture2D" uid="uid://nm0npk7bngwq" path="res://assets/Piring_004.png" id="6_w5v35"]
+[ext_resource type="PackedScene" uid="uid://cnira0tcdt8lh" path="res://scenes/views/cashier/draggable_food.tscn" id="7_6s4hd"]
+[ext_resource type="Script" uid="uid://bhu2luafmesox" path="res://scenes/views/cashier/customer_manger.gd" id="8_8qh0l"]
+[ext_resource type="Resource" uid="uid://dhoosrcfdly5k" path="res://data/item/cooking/food/cooked_patty.tres" id="8_xfxmq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cf7am"]
+radius = 68.0
+height = 188.0
+
+[node name="Cashier" type="Node2D"]
+
+[node name="BgCashier" type="Sprite2D" parent="."]
+position = Vector2(576.4431, 323.99997)
+scale = Vector2(0.6136363, 0.6136363)
+texture = ExtResource("1_wiwm5")
+
+[node name="CustomerManger" type="Node2D" parent="."]
+script = ExtResource("8_8qh0l")
+
+[node name="NPC" type="Area2D" parent="."]
+script = ExtResource("2_o5ohj")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(815.00006, 354.00003)
+scale = Vector2(0.5428894, 0.54288936)
+texture = ExtResource("3_0toix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2(811, 190)
+shape = SubResource("CapsuleShape2D_cf7am")
+
+[node name="Counter" type="Sprite2D" parent="."]
+position = Vector2(577.22864, 483.62503)
+scale = Vector2(0.6019197, 0.60191965)
+texture = ExtResource("4_8qh0l")
+
+[node name="Piring" type="Sprite2D" parent="."]
+position = Vector2(804, 565)
+texture = ExtResource("6_w5v35")
+
+[node name="DraggableFood" parent="." instance=ExtResource("7_6s4hd")]
+position = Vector2(796, 519)
+food = ExtResource("8_xfxmq")

@@ -1,11 +1,13 @@
 class_name Enemy
 extends Node2D
 
-const PATTY = preload("uid://kkbxen1mxjdw")
 
 
 @export var MAX_HP : float = 2.
+@export var item_drops : Dictionary[Ingredient, int]
+
 @onready var hp := MAX_HP
+
 
 func take_damage(damage = 1):
 	print("take damage")
@@ -14,6 +16,10 @@ func take_damage(damage = 1):
 		kill()
 
 func kill():
-	Inventory.ingredients.append(PATTY)
+	print("get item drop",item_drops)
+	
+	for item_drop in item_drops:
+		print("get item drop",item_drop)
+		#Inventory.ingredients[item_drop] += 2
 	print(Inventory.ingredients)
 	queue_free()

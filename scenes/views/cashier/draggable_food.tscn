@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnira0tcdt8lh"]
+
+[ext_resource type="Script" uid="uid://cc1dqikq552oe" path="res://Script/draggable_food.gd" id="1_2rvjp"]
+[ext_resource type="Texture2D" uid="uid://c6eb0t14mmcef" path="res://assets/Burger_005.png" id="2_ew2kg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cf7am"]
+radius = 72.249565
+
+[node name="DraggableFood" type="Area2D"]
+script = ExtResource("1_2rvjp")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(-1.25, 4.5)
+scale = Vector2(0.10499999, 0.10499999)
+texture = ExtResource("2_ew2kg")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0.75, -0.5)
+shape = SubResource("CircleShape2D_cf7am")
